@@ -30,6 +30,12 @@ class App():
     state = self.builder.get_object('id3_check').get_active()
     self.builder.get_object('framecode_entry').set_sensitive(state) 
     self.builder.get_object('tags_grid').set_sensitive(state)
+    #Enable Start button when this and/or rename_check are active
+    if (state):
+      self.builder.get_object('process_button').set_sensitive(True)
+    elif (self.builder.get_object('rename_check').get_active() == False):
+      self.builder.get_object('process_button').set_sensitive(False)
+  
 
   #Callback for toggle event on rename_check
   #Toggles sensitivity of rename-related widgets
@@ -37,6 +43,12 @@ class App():
     #Toggle sensitivity for related widgets
     state = self.builder.get_object('rename_check').get_active()
     self.builder.get_object('pattern_box').set_sensitive(state) 
+    #Enable Start button when this and/or id3_check are active
+    if (state):
+      self.builder.get_object('process_button').set_sensitive(True)
+    elif (self.builder.get_object('id3_check').get_active() == False):
+      self.builder.get_object('process_button').set_sensitive(False)
+
 
 #If invoked directly
 if __name__ == "__main__":
