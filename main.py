@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from gi.repository import Gtk
+import id3_process
 
 class App():
 
@@ -16,11 +17,17 @@ class App():
     
     #Map glade handler names to functions
     self.handlers = {"id3_toggled": self.toggle_id3,
-                     "rename_toggled": self.toggle_rename}
+                     "rename_toggled": self.toggle_rename,
+                     "begin_clicked": self.process_files}
     self.builder.connect_signals(self.handlers)
    
     #Show
     self.window.show_all()
+  
+
+  def process_files(self, widget):
+    directory = self.builder.get_object('dir_chooser').get_filename()
+    id3_process.process_files(directory)
     
 
   #Callback for toggle event on id3_check
