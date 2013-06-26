@@ -166,7 +166,7 @@
                             <property name="margin_bottom">20</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
-                            <signal name="toggled" handler="id3_toggled" object="framecode_entry" swapped="no"/>
+                            <signal name="toggled" handler="id3_toggled" swapped="no"/>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -315,7 +315,7 @@
                           <object class="GtkEntry" id="framecode_entry">
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
-                            <property name="can_focus">False</property>
+                            <property name="can_focus">True</property>
                             <property name="invisible_char">•</property>
                             <property name="placeholder_text">Type space-separated ID3 Frame codes</property>
                           </object>
@@ -396,7 +396,7 @@
                             <child>
                               <object class="GtkEntry" id="pattern_entry">
                                 <property name="visible">True</property>
-                                <property name="can_focus">False</property>
+                                <property name="can_focus">True</property>
                                 <property name="invisible_char">•</property>
                               </object>
                               <packing>
