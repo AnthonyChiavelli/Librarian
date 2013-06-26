@@ -143,7 +143,7 @@
                         <property name="can_focus">False</property>
                         <property name="orientation">vertical</property>
                         <child>
-                          <object class="GtkCheckButton" id="checkbutton2">
+                          <object class="GtkCheckButton" id="id3_checkbox">
                             <property name="label" translatable="yes">Enable ID3 Fetching</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -151,6 +151,7 @@
                             <property name="margin_bottom">20</property>
                             <property name="xalign">0</property>
                             <property name="draw_indicator">True</property>
+                            <signal name="toggled" handler="id3_toggled" object="framecode_entry" swapped="no"/>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -341,13 +342,12 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkEntry" id="entry2">
+                          <object class="GtkEntry" id="framecode_entry">
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">False</property>
                             <property name="invisible_char">•</property>
                             <property name="placeholder_text">Type space-separated ID3 Frame codes</property>
-                            <property name="completion">entrycompletion1</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
