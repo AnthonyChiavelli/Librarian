@@ -18,14 +18,16 @@ class App:
     self.window.add(self.button)
     self.button.show()
 
+    #Show window
     self.window.show()
 
+  #Callback function connected to clicking of button
   def clicked(self, widget, data=None):
     print "Clicked"
 
   #Callback function connected to titlebar close 
   def delete_event(self):
-    return False #True to remain open
+    return False #True to remain open, false to emit destroy signal
 
   #Callback function connected to gtk_widget_destroy() call
   #or False returned from self.delete_event()
