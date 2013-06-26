@@ -15,21 +15,28 @@ class App():
     self.window.connect("delete-event", Gtk.main_quit)
     
     #Map glade handler names to functions
-    self.handlers = {"id3_toggled": self.toggle_id3}
+    self.handlers = {"id3_toggled": self.toggle_id3,
+                     "rename_toggled": self.toggle_rename}
     self.builder.connect_signals(self.handlers)
-    
+   
     #Show
     self.window.show_all()
     
 
-  #Callback for toggle event on id3_checkbox
+  #Callback for toggle event on id3_check
   #Toggles sensitivity of id3-related widgets
   def toggle_id3(self, widget):
-    #Toggle sensitivity 
-    state = not widget.get_sensitive()
-    self.builder.get_object('framecode_entry').set_sensitive(state)
-    
+    #Toggle sensitivity for related widgets
+    state = self.builder.get_object('id3_check').get_active()
+    self.builder.get_object('framecode_entry').set_sensitive(state) 
+    self.builder.get_object('tags_grid').set_sensitive(state)
 
+  #Callback for toggle event on rename_check
+  #Toggles sensitivity of rename-related widgets
+  def toggle_rename(self, widget):
+    #Toggle sensitivity for related widgets
+    state = self.builder.get_object('rename_check').get_active()
+    self.builder.get_object('pattern_box').set_sensitive(state) 
 
 #If invoked directly
 if __name__ == "__main__":
